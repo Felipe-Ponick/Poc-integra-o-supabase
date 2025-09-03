@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "poc-integracao-supabase",
-    "slug": "poc-integracao-supabase",
+    "name": "poc-integracao-supabase2",
+    "slug": "poc-integracao-supabase2",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "pocintegracaosupabase",
+    "scheme": "pocintegracaosupabase2",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {

@@ -1,110 +1,137 @@
-import { Image } from 'expo-image';
-import { Platform, StyleSheet } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 import { Collapsible } from '@/components/Collapsible';
 import { ExternalLink } from '@/components/ExternalLink';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
-import { IconSymbol } from '@/components/ui/IconSymbol';
 
 export default function TabTwoScreen() {
   return (
     <ParallaxScrollView
-      headerBackgroundColor={{ light: '#D0D0D0', dark: '#353636' }}
+      headerBackgroundColor={{ light: '#CC0000', dark: '#000000' }}
       headerImage={
-        <IconSymbol
-          size={310}
-          color="#808080"
-          name="chevron.left.forwardslash.chevron.right"
-          style={styles.headerImage}
-        />
+        <View style={styles.flamengoHeader}>
+          <ThemedText style={styles.flamengoTitle}>FLAMENGO</ThemedText>
+          <ThemedText style={styles.flamengoSubtitle}>Paixão e Tradição</ThemedText>
+        </View>
       }>
       <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Explore</ThemedText>
+        <ThemedText type="title" style={styles.exploreTitle}>História do Flamengo</ThemedText>
       </ThemedView>
-      <ThemedText>This app includes example code to help you get started.</ThemedText>
-      <Collapsible title="File-based routing">
-        <ThemedText>
-          This app has two screens:{' '}
-          <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> and{' '}
-          <ThemedText type="defaultSemiBold">app/(tabs)/explore.tsx</ThemedText>
+
+      <ThemedText style={styles.introText}>
+        Descubra mais sobre a rica história e conquistas do Clube de Regatas do Flamengo.
+      </ThemedText>
+
+      <Collapsible title="🏆 Principais Títulos">
+        <ThemedText style={styles.collapsibleText}>
+          • <ThemedText type="defaultSemiBold">Copa Libertadores:</ThemedText> 3 títulos (1981, 2019, 2022)
         </ThemedText>
-        <ThemedText>
-          The layout file in <ThemedText type="defaultSemiBold">app/(tabs)/_layout.tsx</ThemedText>{' '}
-          sets up the tab navigator.
+        <ThemedText style={styles.collapsibleText}>
+          • <ThemedText type="defaultSemiBold">Mundial de Clubes:</ThemedText> 1 título (1981)
         </ThemedText>
-        <ExternalLink href="https://docs.expo.dev/router/introduction">
-          <ThemedText type="link">Learn more</ThemedText>
+        <ThemedText style={styles.collapsibleText}>
+          • <ThemedText type="defaultSemiBold">Campeonato Brasileiro:</ThemedText> 8 títulos
+        </ThemedText>
+        <ThemedText style={styles.collapsibleText}>
+          • <ThemedText type="defaultSemiBold">Copa do Brasil:</ThemedText> 4 títulos
+        </ThemedText>
+      </Collapsible>
+
+      <Collapsible title="👑 Grandes Ídolos">
+        <ThemedText style={styles.collapsibleText}>
+          • <ThemedText type="defaultSemiBold">Zico:</ThemedText> O Galinho de Quintino, maior ídolo da história
+        </ThemedText>
+        <ThemedText style={styles.collapsibleText}>
+          • <ThemedText type="defaultSemiBold">Junior:</ThemedText> O Maestro, um dos maiores laterais do futebol
+        </ThemedText>
+        <ThemedText style={styles.collapsibleText}>
+          • <ThemedText type="defaultSemiBold">Gabigol:</ThemedText> Artilheiro e ídolo de uma geração
+        </ThemedText>
+        <ThemedText style={styles.collapsibleText}>
+          • <ThemedText type="defaultSemiBold">Adriano Imperador:</ThemedText> A força e o talento na Gávea
+        </ThemedText>
+      </Collapsible>
+
+      <Collapsible title="🏟️ Maracanã">
+        <ThemedText style={styles.collapsibleText}>
+          O Estádio Jornalista Mário Filho, conhecido como Maracanã, é o palco de grandes jogos do Flamengo.
+        </ThemedText>
+        <ThemedText style={styles.collapsibleText}>
+          Com capacidade para mais de 78.000 torcedores, é um dos maiores e mais icónicos estádios do mundo.
+        </ThemedText>
+        <ExternalLink href="https://www.flamengo.com.br/">
+          <ThemedText type="link">Site Oficial do Flamengo</ThemedText>
         </ExternalLink>
       </Collapsible>
-      <Collapsible title="Android, iOS, and web support">
-        <ThemedText>
-          You can open this project on Android, iOS, and the web. To open the web version, press{' '}
-          <ThemedText type="defaultSemiBold">w</ThemedText> in the terminal running this project.
+
+      <Collapsible title="📅 Fundação e História">
+        <ThemedText style={styles.collapsibleText}>
+          O Clube de Regatas do Flamengo foi fundado em 17 de novembro de 1895 para competições de remo.
+        </ThemedText>
+        <ThemedText style={styles.collapsibleText}>
+          O futebol foi introduzido em 1912 e rapidamente se tornou a principal modalidade do clube.
+        </ThemedText>
+        <ThemedText style={styles.collapsibleText}>
+          O rubro-negro, com suas cores vermelho e preto, representa a paixão da torcida.
         </ThemedText>
       </Collapsible>
-      <Collapsible title="Images">
-        <ThemedText>
-          For static images, you can use the <ThemedText type="defaultSemiBold">@2x</ThemedText> and{' '}
-          <ThemedText type="defaultSemiBold">@3x</ThemedText> suffixes to provide files for
-          different screen densities
+
+      <Collapsible title="🎯 Curiosidades">
+        <ThemedText style={styles.collapsibleText}>
+          • O Flamengo tem a maior torcida do mundo, com milhões de adeptos espalhados pelo Brasil e pelo mundo.
         </ThemedText>
-        <Image source={require('@/assets/images/react-logo.png')} style={{ alignSelf: 'center' }} />
-        <ExternalLink href="https://reactnative.dev/docs/images">
-          <ThemedText type="link">Learn more</ThemedText>
-        </ExternalLink>
-      </Collapsible>
-      <Collapsible title="Custom fonts">
-        <ThemedText>
-          Open <ThemedText type="defaultSemiBold">app/_layout.tsx</ThemedText> to see how to load{' '}
-          <ThemedText style={{ fontFamily: 'SpaceMono' }}>
-            custom fonts such as this one.
-          </ThemedText>
+        <ThemedText style={styles.collapsibleText}>
+          • O hino do Flamengo é um dos mais populares e cantados do futebol brasileiro.
         </ThemedText>
-        <ExternalLink href="https://docs.expo.dev/versions/latest/sdk/font">
-          <ThemedText type="link">Learn more</ThemedText>
-        </ExternalLink>
-      </Collapsible>
-      <Collapsible title="Light and dark mode components">
-        <ThemedText>
-          This template has light and dark mode support. The{' '}
-          <ThemedText type="defaultSemiBold">useColorScheme()</ThemedText> hook lets you inspect
-          what the user&apos;s current color scheme is, and so you can adjust UI colors accordingly.
+        <ThemedText style={styles.collapsibleText}>
+          • O ano de 1981 é considerado o mais vitorioso da história do clube.
         </ThemedText>
-        <ExternalLink href="https://docs.expo.dev/develop/user-interface/color-themes/">
-          <ThemedText type="link">Learn more</ThemedText>
-        </ExternalLink>
-      </Collapsible>
-      <Collapsible title="Animations">
-        <ThemedText>
-          This template includes an example of an animated component. The{' '}
-          <ThemedText type="defaultSemiBold">components/HelloWave.tsx</ThemedText> component uses
-          the powerful <ThemedText type="defaultSemiBold">react-native-reanimated</ThemedText>{' '}
-          library to create a waving hand animation.
+        <ThemedText style={styles.collapsibleText}>
+          • A sigla CRF significa Clube de Regatas do Flamengo.
         </ThemedText>
-        {Platform.select({
-          ios: (
-            <ThemedText>
-              The <ThemedText type="defaultSemiBold">components/ParallaxScrollView.tsx</ThemedText>{' '}
-              component provides a parallax effect for the header image.
-            </ThemedText>
-          ),
-        })}
       </Collapsible>
     </ParallaxScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  headerImage: {
-    color: '#808080',
-    bottom: -90,
-    left: -35,
-    position: 'absolute',
-  },
   titleContainer: {
     flexDirection: 'row',
     gap: 8,
+  },
+  flamengoHeader: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#CC0000', // Vermelho do Flamengo
+    paddingVertical: 40,
+  },
+  flamengoTitle: {
+    fontSize: 32,
+    fontWeight: 'bold',
+    color: '#FFFFFF',
+    textAlign: 'center',
+    marginBottom: 8,
+  },
+  flamengoSubtitle: {
+    fontSize: 16,
+    color: '#FFFFFF',
+    textAlign: 'center',
+    opacity: 0.8,
+  },
+  exploreTitle: {
+    color: '#CC0000', // Título em vermelho
+  },
+  introText: {
+    color: '#333333',
+    marginBottom: 16,
+    fontSize: 16,
+  },
+  collapsibleText: {
+    color: '#333333',
+    marginBottom: 8,
+    lineHeight: 20,
   },
 });
